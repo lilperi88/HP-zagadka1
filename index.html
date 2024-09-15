@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona z hasłem</title>
+    <title>Zagadka nr 1</title>
     <style>
         body {
+            background-color: black; /* Czarny kolor tła */
+            color: white; /* Biały tekst dla kontrastu */
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 50px;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 50%; /* Maksymalna szerokość obrazka 50% szerokości ekranu */
+            height: auto; /* Zachowaj proporcje obrazka */
         }
         .hidden {
             display: none;
@@ -20,18 +26,25 @@
     <input type="password" id="passwordInput" placeholder="Wpisz hasło">
     <button onclick="checkPassword()">Sprawdź</button>
 
-    <p id="message" class="hidden">Brawo! Kolejna wskazówka to XYZ.</p>
+    <!-- Ukryty tekst, który zostanie pokazany po wpisaniu poprawnego hasła -->
+    <p id="message" class="hidden">BRAWO, zgadłeś</p>
+
+    <!-- Dodanie obrazka -->
+    <img src="https://https://www.pngegg.com/en/png-wrdtl" alt="Opis obrazka" class="hidden" id="myImage">
 
     <script>
         function checkPassword() {
             const correctPassword = 'hermiona'; // Wstaw tutaj swoje hasło
             const passwordInput = document.getElementById('passwordInput').value;
             const message = document.getElementById('message');
+            const image = document.getElementById('myImage'); // Obrazek
 
             if (passwordInput === correctPassword) {
-                message.classList.remove('hidden');
+                message.classList.remove('hidden'); // Pokaż ukryty tekst
+                image.classList.remove('hidden'); // Pokaż obrazek
             } else {
-                message.classList.add('hidden');
+                message.classList.add('hidden'); // Ukryj tekst
+                image.classList.add('hidden'); // Ukryj obrazek
                 alert('Nieprawidłowe hasło. Spróbuj ponownie.');
             }
         }
