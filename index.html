@@ -7,48 +7,80 @@
     <style>
         body {
             background-color: black; /* Czarny kolor tła */
-            color: white; /* Biały tekst dla kontrastu */
+            color: white; /* Biały tekst */
             font-family: Arial, sans-serif;
-            text-align: center;
+            margin: 0;
+            height: 100vh; /* Wysokość strony na 100% ekranu */
+            display: flex;
+            justify-content: center; /* Centruje poziomo */
+            align-items: center; /* Centruje pionowo */
+            flex-direction: column; /* Ustawia elementy w pionie, jeden pod drugim */
         }
         img {
-            margin-top: 20px;
-            max-width: 50%; /* Maksymalna szerokość obrazka 50% szerokości ekranu */
-            height: auto; /* Zachowaj proporcje obrazka */
+            width: 300px; /* Szerokość obrazka */
+            height: auto; /* Zachowanie proporcji obrazka */
+            margin: 20px 0; /* Dodaje odstęp między obrazkiem a innymi elementami */
         }
-        .hidden {
-            display: none;
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            width: 300px; /* Szerokość pola hasła */
+            text-align: center; /* Wyśrodkowanie tekstu w polu */
+            margin-bottom: 20px; /* Odstęp między polem hasła a przyciskiem */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
-    <h1>Wprowadź hasło</h1>
-    <input type="password" id="passwordInput" placeholder="Wpisz hasło">
-    <button onclick="checkPassword()">Sprawdź</button>
 
-    <!-- Ukryty tekst, który zostanie pokazany po wpisaniu poprawnego hasła -->
-    <p id="message" class="hidden">BRAWO, zgadłeś</p>
+    <!-- Nagłówek -->
+    <h1>Wpisz hasło</h1>
 
-    <!-- Dodanie obrazka -->
-   <img src="herb.png" alt="Opis obrazka" style="width: 200px; height: auto;">
+    <!-- Dodanie obrazka (twój własny obrazek) -->
+    <img src="herb.png" alt="Opis obrazka">
 
+    <!-- Pole do wprowadzenia hasła -->
+    <input type="password" id="password" placeholder="Wprowadź hasło">
+
+    <!-- Przycisk do zatwierdzenia hasła -->
+    <button onclick="sprawdzHaslo()">Zatwierdź</button>
+
+    <!-- Wiadomość o poprawności hasła -->
+    <div class="message" id="message"></div>
 
     <script>
-        function checkPassword() {
-            const correctPassword = 'kot'; // Wstaw tutaj swoje hasło
-            const passwordInput = document.getElementById('passwordInput').value;
-            const message = document.getElementById('message');
-            const image = document.getElementById('myImage'); // Obrazek
+        // Funkcja do sprawdzania poprawności hasła
+        function sprawdzHaslo() {
+            var haslo = document.getElementById("password").value;
+            var poprawneHaslo = "kotek"; // Tutaj wpisz swoje hasło
+            var message = document.getElementById("message");
 
-            if (passwordInput === correctPassword) {
-                message.classList.remove('hidden'); // Pokaż ukryty tekst
-                image.classList.remove('hidden'); // Pokaż obrazek
+            if (haslo === poprawneHaslo) {
+                message.textContent = "Hasło poprawne! Dostęp przyznany.";
+                message.style.color = "green";
             } else {
-                message.classList.add('hidden'); // Ukryj tekst
-                image.classList.add('hidden'); // Ukryj obrazek
-                alert('Nieprawidłowe hasło. Spróbuj ponownie.');
+                message.textContent = "Błędne hasło. Spróbuj ponownie.";
+                message.style.color = "red";
             }
         }
     </script>
+
 </body>
 </html>
