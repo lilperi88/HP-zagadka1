@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona z hasłem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wprowadź hasło</h1>
+    <input type="password" id="passwordInput" placeholder="Wpisz hasło">
+    <button onclick="checkPassword()">Sprawdź</button>
+
+    <p id="message" class="hidden">Brawo! Kolejna wskazówka to XYZ.</p>
+
+    <script>
+        function checkPassword() {
+            const correctPassword = 'hermiona'; // Wstaw tutaj swoje hasło
+            const passwordInput = document.getElementById('passwordInput').value;
+            const message = document.getElementById('message');
+
+            if (passwordInput === correctPassword) {
+                message.classList.remove('hidden');
+            } else {
+                message.classList.add('hidden');
+                alert('Nieprawidłowe hasło. Spróbuj ponownie.');
+            }
+        }
+    </script>
+</body>
+</html>
