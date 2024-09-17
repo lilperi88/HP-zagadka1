@@ -57,7 +57,7 @@
     <h1>Wpisz hasło</h1>
 
     <!-- Dodanie obrazka (twój własny obrazek) -->
-    <img src="herb.png" alt="Opis obrazka" class="hidden" id="mainImage">
+    <img src="herb.png" alt="Opis obrazka" id="mainImage">
 
     <!-- Pole do wprowadzenia hasła -->
     <input type="password" id="password" placeholder="Wprowadź hasło">
@@ -75,7 +75,7 @@
         // Funkcja do sprawdzania poprawności hasła
         function sprawdzHaslo() {
             var haslo = document.getElementById("password").value;
-            var poprawneHaslo = "HAGRID"; // Tutaj wpisz swoje hasło
+            var poprawneHaslo = "Hagrid"; // Tutaj wpisz swoje hasło
             var message = document.getElementById("message");
             var secretImage = document.getElementById("secretImage");
 
