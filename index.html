@@ -18,7 +18,7 @@
             flex-direction: column; /* Ustawia elementy w pionie, jeden pod drugim */
         }
         img {
-            width: 100px; /* Szerokość obrazka */
+            width: 150px; /* Szerokość obrazka */
             height: auto; /* Zachowanie proporcji obrazka */
             margin: 20px 0; /* Dodaje odstęp między obrazkiem a innymi elementami */
         }
@@ -85,7 +85,7 @@
             var secretImage = document.getElementById("secretImage");
 
             if (haslo === poprawneHaslo) {
-                message.textContent = "Brawo! To prawidłowe hasło. Następną wskazówkę ukradł .";
+                message.textContent = "Brawo! To prawidłowe hasło. Następną wskazówkę ukradł: .";
                 message.style.color = "green";
                 secretImage.classList.remove("hidden"); // Wyświetlenie tajnego obrazka
             } else {
